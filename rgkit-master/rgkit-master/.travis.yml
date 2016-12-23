@@ -1,0 +1,18 @@
+sudo: false
+language: python
+python:
+  - "2.7"
+  - "3.4"
+cache: pip
+script:
+  - nosetests
+  - flake8 rgkit test
+  - ./build-docs.sh
+notifications:
+  email: false
+  irc:
+    channels:
+      - "chat.freenode.net#robotgame"
+    use_notice: true
+    on_success: change
+    on_failure: always
