@@ -325,12 +325,20 @@ class Game(object):
 
         return actions_on_turn
 
+
+
     def run_turn(self, record_output=False):
         if self._print_info:
             print((' running turn %d ' % (self._state.turn)).center(70, '-'))
 
         responses = self._get_robots_responses()
         actions = responses[0]
+
+        import json
+        with open('history.json', 'w') as f:
+            json.dump(self.history, f, sort_keys=True, indent=4)
+        #input('pause')
+
 
         delta = self._state.get_delta(actions)
 

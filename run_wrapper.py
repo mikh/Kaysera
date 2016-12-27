@@ -7,6 +7,8 @@ from Digital_Library.lib import arg_lib
 from Digital_Library.lib import const_lib
 from Digital_Library.lib import path_lib
 
+import history_reader
+
 module = 'kaysera'
 
 path = const_lib.load_module_paths(module)
@@ -63,6 +65,7 @@ def _run(bash_shell, mapfile, player, player1, player2, iterations, headless, ra
 	os.system(command)
 
 	path_lib.delete_file(script_path)
+	history_reader.save_history()
 
 
 
